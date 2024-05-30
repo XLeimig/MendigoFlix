@@ -18,17 +18,17 @@
     <nav>
       <a class="logo" href="#inicio1">MendigoFLIX</a>
       <div class="mobile-menu">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
       </div>
       <ul class="nav-list">
-        <li><a href="#inicio1">Início</a></li>       
-        <li><a href="#movie">Filmes</a></li>
-        <li><a href="#serie">Séries</a></li>
-        <li><a href="#docu">Documentários</a></li>
+          <li><a id="inicioBtn" href="#inicio1">Início</a></li>
+          <li><a href="#movie">Filmes</a></li>
+          <li><a href="#serie">Séries</a></li>
+          <li><a href="#docu">Documentários</a></li>
       </ul>
-    </nav>
+  </nav>
   </header>
   <main></main>
   <script src="Mendigo.js"></script>
@@ -158,8 +158,11 @@
         const searchInput = document.querySelector(".search-txt");
         const searchItems = document.querySelectorAll(".search-item");
         const logoLink = document.querySelector(".logo");
+        // Seleciona o botão "Início" pelo ID
+        const inicioBtn = document.getElementById("inicioBtn");
 
-        logoLink.addEventListener("click", function(event) {
+        // Adiciona um evento de clique ao botão "Início"
+        inicioBtn.addEventListener("click", function(event) {
             event.preventDefault();
             searchInput.value = ""; // Limpa o valor do input de pesquisa
             // Mostra todos os itens novamente
@@ -168,6 +171,7 @@
             });
         });
 
+        // Evento de input da barra de pesquisa (mantido para filtragem)
         searchInput.addEventListener("input", function() {
             const query = this.value.toLowerCase();
             searchItems.forEach(item => {
